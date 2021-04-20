@@ -10,6 +10,9 @@ class Block:
         self.previousHash = previousHash
         self.hash = self.hashBlock()
 
+    def __str__(self):
+        return f"BLOCK index={self.index},nonce={self.nonce}"
+
     def hashBlock(self):
         """ Calculates the hash of the block """
         sha = hashlib.sha256()

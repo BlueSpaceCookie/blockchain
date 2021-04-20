@@ -7,6 +7,13 @@ class BlockChain:
         self.__chain = []
         self.__currentTransactionsList = []
 
+    def __str__(self):
+        return f"\n\t----------------------------------------------------------\n\
+        Chain length :{len(self.__chain)}\n\
+        Chain : {[str(block) for block in self.__chain]}\n\
+        Current Transactions : {self.__currentTransactionsList}\n\
+        ----------------------------------------------------------\n"
+
     @property
     def getLastBlock(self):
         return self.__chain[-1]
@@ -54,6 +61,7 @@ class BlockChain:
         while not self.validateNonce(lastNonce, lastHash, nonce):
             nonce += 1
 
+        print(f"MINING : Nonce validated :{nonce}")
         return nonce
 
     def addBlock(self, block):
