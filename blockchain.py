@@ -51,7 +51,7 @@ class BlockChain:
         lastHash = block.hash
 
         nonce = 0
-        while not self.validate(lastNonce, lastHash, nonce):
+        while not self.validateNonce(lastNonce, lastHash, nonce):
             nonce += 1
 
         return nonce
@@ -74,7 +74,7 @@ class BlockChain:
             return False
         if currentBlock.hash != currentBlock.hashBlock():
             return False
-        if not self.validate_proof_of_work(previousBlock.nonce, previousBlock.hash, currentBlock.nonce):
+        if not self.validateNonce(previousBlock.nonce, previousBlock.hash, currentBlock.nonce):
             return False
         return True
 
@@ -111,13 +111,10 @@ class BlockChain:
         index = lastBlock.index + 1
         previousHash = lastBlock.hash
 
-        # Let's start with the heavy duty, generating the proof of work
-        nonce = self.generate_proof_of_work(lastBlock)
+        nonce = self.generate(lastBlock)
 
-        # In the next step we will create a new transaction to reward the miner
-        # In this particular case, the miner will receive coins that are just "created", so there is no sender
-        self.createTransaction(
-            sender="0",
+        self.createTransaction( # Reward for the miner
+            sender="0",         # The miner receive coins "created", so there is no sender
             recipient=rewardAddress,
             amount=1,
         )
