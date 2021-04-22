@@ -6,6 +6,7 @@ if __name__ == '__main__':
     print(firstChain)
     firstChain.mine("Joris")
     firstChain.mine("Robin")
+    firstChain.createTransaction("Joris","Robin",5)
     print(firstChain)
 
     secondChain = BlockChain()

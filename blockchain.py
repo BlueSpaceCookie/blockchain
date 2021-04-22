@@ -11,7 +11,7 @@ class BlockChain:
         return f"\n\t----------------------------------------------------------\n\
         Chain length :{len(self.__chain)}\n\
         Chain : {[str(block) for block in self.__chain]}\n\
-        Current Transactions : {self.__currentTransactionsList}\n\
+        Current Transactions : {[str(transac) for transac in self.__currentTransactionsList]}\n\
         ----------------------------------------------------------\n"
 
     def getLastBlock(self):
@@ -57,12 +57,12 @@ class BlockChain:
         while not self.validateNonce(lastNonce, lastHash, nonce):
             nonce += 1
 
-        print(f"MINING : Nonce validated :{nonce}")
+        print(f"MINING : Nonce validated : {nonce}")
         return nonce
 
     def addBlock(self, block):
         """ Creates a new block and passes it to the chain """
-        if self.validateBlock(block, self.getLastBlock):
+        if self.validateBlock(block, self.getLastBlock()):
             self.__chain.append(block)
             self.__currentTransactionsList = [] # Remove transactions from the list
             return True
@@ -111,7 +111,7 @@ class BlockChain:
 
     def mine(self, rewardAddress):
         """ Mines a new block into the chain """
-        lastBlock = self.getLastBlock
+        lastBlock = self.getLastBlock()
         index = lastBlock.index + 1
         previousHash = lastBlock.hash
 
