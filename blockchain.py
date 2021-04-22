@@ -14,19 +14,15 @@ class BlockChain:
         Current Transactions : {self.__currentTransactionsList}\n\
         ----------------------------------------------------------\n"
 
-    @property
     def getLastBlock(self):
         return self.__chain[-1]
 
-    @property
     def getLastTransaction(self):
         return self.__currentTransactionsList[-1]
 
-    @property
     def getPendingTransactions(self):
         return self.__currentTransactionsList
 
-    @property
     def getChain(self):
         return self.__chain
 
