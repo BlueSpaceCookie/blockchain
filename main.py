@@ -1,22 +1,22 @@
 from blockchain import BlockChain
-from user import User
+from wallet import wallet
 
 if __name__ == '__main__':
     firstChain = BlockChain()
     firstChain.createFirstBlock()
     print(firstChain)
-    joris = User("Joris")
-    robin = User("Robin")
-    firstChain.mine(joris.id)
-    firstChain.mine(robin.id)
-    firstChain.createTransaction(joris.id,robin.id,5)
+    firstWallet = wallet.create_wallet()
+    secondWallet = wallet.create_wallet()
+    firstChain.mine(firstWallet["adress"])
+    firstChain.mine(secondWallet["adress"])
+    firstChain.createTransaction(firstWallet["adress"],secondWallet["adress"],5)
     print(firstChain)
 
     secondChain = BlockChain()
     secondChain.createFirstBlock()
-    secondChain.mine(joris.id)
-    secondChain.mine(joris.id)
-    secondChain.mine(joris.id)
+    secondChain.mine(firstWallet["adress"])
+    secondChain.mine(firstWallet["adress"])
+    secondChain.mine(firstWallet["adress"])
 
     print(secondChain)
     firstChain.replaceChain(secondChain.getChain())

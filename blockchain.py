@@ -37,9 +37,7 @@ class BlockChain:
 
         if transaction.validate():
             self.__currentTransactionsList.append(transaction)
-
             return transaction, True
-
         return None, False
 
     @staticmethod
