@@ -1,6 +1,9 @@
 from blockchain import BlockChain
 from wallet import wallet
 
+#Robin Danz - Joris Monnet
+#He-Arc - Security
+
 if __name__ == '__main__':
     firstChain = BlockChain()
     firstChain.createFirstBlock()

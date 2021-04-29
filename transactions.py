@@ -1,5 +1,8 @@
 import time
 
+#Robin Danz - Joris Monnet
+#He-Arc - Security
+
 class Transaction:
     def __init__(self, sender, recipient, amount):
         self.sender = sender

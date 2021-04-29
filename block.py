@@ -1,6 +1,9 @@
 import hashlib
 from time import time
 
+#Robin Danz - Joris Monnet
+#He-Arc - Security
+
 class Block:
     def __init__(self, index, transactions, nonce, previousHash):
         self.index = index

@@ -2,6 +2,9 @@ from block import Block
 from transactions import Transaction
 import hashlib
 
+#Robin Danz - Joris Monnet
+#He-Arc - Security
+
 class BlockChain:
     def __init__(self):
         self.__chain = []
