@@ -9,7 +9,6 @@ from .ethereum import (
 
 __all__ = [
     'Wallet',
-
     'HDPrivateKey',
     'HDPublicKey',
     'HDKey',

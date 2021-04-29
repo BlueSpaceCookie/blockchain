@@ -17,22 +17,20 @@ import hashlib
 import hmac
 from mnemonic.mnemonic import Mnemonic
 import random
-from two1.bitcoin.utils import bytes_to_str
-from two1.bitcoin.utils import address_to_key_hash
-from two1.bitcoin.utils import rand_bytes
-from two1.crypto.ecdsa_base import Point
-from two1.crypto.ecdsa import ECPointAffine
-from two1.crypto.ecdsa import secp256k1
+from two1.two1.bitcoin.utils import bytes_to_str
+from two1.two1.bitcoin.utils import address_to_key_hash
+from two1.two1.bitcoin.utils import rand_bytes
+from two1.two1.crypto.ecdsa_base import Point
+from two1.two1.crypto.ecdsa import ECPointAffine
+from two1.two1.crypto.ecdsa import secp256k1
 
 bitcoin_curve = secp256k1()
 
 from Crypto.Hash import keccak
 sha3_256 = lambda x: keccak.new(digest_bits=256, data=x)
 
-
 def sha3(seed):
     return sha3_256(seed).digest()
-
 
 def get_bytes(s):
     """Returns the byte representation of a hex- or byte-string."""

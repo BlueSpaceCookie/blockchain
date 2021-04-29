@@ -8,7 +8,7 @@ class Transaction:
         self.amount = amount
 
     def __str__(self):
-        return f"TRANSACTION:sender={self.sender},\nrecipient={self.recipient},\namount={self.amount}"
+        return f"TRANSACTION:sender={self.sender},recipient={self.recipient},amount={self.amount}"
     
     def validate(self):
         """  return if a transaction is valid """
