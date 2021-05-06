@@ -1,5 +1,5 @@
 # Python Blockchain
-Blockain developped in Python by Joris Monnet
+Blockain developped in Python by Joris Monnet & Robin Danz
 ## Features
 * Create a chain
 * Add block to the chain
