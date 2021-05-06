@@ -1,0 +1,7 @@
+base58==2.1.0
+six==1.15.0
+ecdsa==0.16.1
+mnemonic==0.19
+pycryptodome==3.10.1
+
+
